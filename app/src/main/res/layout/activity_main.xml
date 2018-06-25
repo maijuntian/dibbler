@@ -32,6 +32,7 @@
         app:textColor="@color/white" />
 
     <TextView
+        android:id="@+id/tv_wait_list"
         style="@style/text_white"
         android:layout_marginLeft="60px"
         android:layout_marginTop="350px"
@@ -46,6 +47,7 @@
         android:textSize="30px" />
 
     <TextView
+        android:id="@+id/tv_playing"
         style="@style/text_green"
         android:layout_marginLeft="350px"
         android:layout_marginTop="356px"
@@ -53,6 +55,7 @@
         android:textSize="24px" />
 
     <TextView
+        android:id="@+id/tv_next_play"
         style="@style/text_trans_white60"
         android:layout_marginLeft="350px"
         android:layout_marginTop="400px"
@@ -125,6 +128,12 @@
         </RadioGroup>
 
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"/>
 
 
 </RelativeLayout>

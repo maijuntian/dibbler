@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="640px"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/text_green"
+            android:layout_marginLeft="15px"
+            android:text="15:30:00"
+            android:textSize="30px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:background="@drawable/item_index" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8px"
+                android:background="@color/green" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="600px"
+        android:layout_height="338px"
+        android:layout_marginTop="61px">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/loading_img" />
+
+        <TextView
+            style="@style/text_white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15px"
+            android:layout_marginRight="20px"
+            android:text="25:30"
+            android:textSize="36px" />
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/text_white"
+        android:layout_marginTop="30px"
+        android:text="瑜伽养生功法-腰痛缓解操"
+        android:textSize="30px" />
+
+</LinearLayout>

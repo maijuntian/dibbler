@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ydgzncf_img_bg"
+    android:orientation="vertical"
+    android:paddingLeft="60px">
+
+    <ImageView
+        android:id="@+id/iv_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60px"
+        android:src="@mipmap/ydgzncf_icon_fanhui" />
+
+    <TextView
+        style="@style/text_white"
+        android:layout_marginTop="120px"
+        android:text="待播列表："
+        android:textSize="50px" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:scrollbars="none" />
+
+
+</LinearLayout>
