@@ -2,6 +2,7 @@ package com.mai.dibbler.http;
 
 
 import com.mai.dibbler.bean.Course;
+import com.mai.dibbler.bean.WaitCourse;
 
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
@@ -17,5 +18,5 @@ public interface CatApi {
     Observable<CatRespone<Course>> allVideoCourseList(@Body RequestBody json);
 
     @POST("external/videoPlay/videoWaitForPlayList")
-    Observable<CatRespone<Course>> allVideoCourseList(@Body RequestBody json);
+    Observable<CatRespone<WaitCourse>> videoWaitForPlayList(@Body RequestBody json);
 }

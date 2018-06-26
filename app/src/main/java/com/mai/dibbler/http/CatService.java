@@ -2,16 +2,13 @@ package com.mai.dibbler.http;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Bitmap;
+
+import com.mai.dibbler.bean.Course;
+import com.mai.dibbler.bean.WaitCourse;
 import com.mai.xmai_fast_lib.basehttp.BaseRetrofitService;
 import com.mai.xmai_fast_lib.basehttp.MParams;
-import com.mai.xmai_fast_lib.basehttp.UploadListener;
 import com.mai.xmai_fast_lib.exception.ServerException;
 import com.mai.xmai_fast_lib.utils.MLog;
-import com.mai.xmai_fast_lib.utils.SharedPreferencesHelper;
-
-import java.io.File;
-import java.util.List;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -129,5 +126,11 @@ public class CatService extends BaseRetrofitService<CatApi> {
         return checkNetWork(checkResult2(observable), context);
     }
 
+    protected Observable<Course> allVideoCourseList(MParams params, Context ctx) {
+        return checkNoDialog(mService.allVideoCourseList(params.getJsonRequestBody()), ctx);
+    }
 
+    protected Observable<WaitCourse> videoWaitForPlayList(MParams params, Context ctx) {
+        return checkNoDialog(mService.videoWaitForPlayList(params.getJsonRequestBody()), ctx);
+    }
 }
