@@ -1,8 +1,5 @@
 package com.mai.dibbler.http;
 
-/**
- * Created by mai on 2018/6/25.
- */
 class CatRespone<T> {
 
     private int code;

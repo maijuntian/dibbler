@@ -1,9 +1,8 @@
 package com.mai.dibbler.bean;
 
-/**
- * Created by mai on 2018/6/25.
- */
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable{
 
 
     /**

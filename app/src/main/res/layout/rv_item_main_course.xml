@@ -10,11 +10,13 @@
         android:layout_height="338px">
 
         <ImageView
+            android:id="@+id/iv_course_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/loading_img" />
 
         <TextView
+            android:id="@+id/tv_course_time"
             style="@style/text_white"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
@@ -26,6 +28,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/tv_course_tip"
         style="@style/text_white"
         android:layout_marginTop="30px"
         android:text="瑜伽养生功法-腰痛缓解操"

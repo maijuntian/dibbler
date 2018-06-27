@@ -10,6 +10,8 @@ import com.mai.xmai_fast_lib.basehttp.MParams;
 import com.mai.xmai_fast_lib.exception.ServerException;
 import com.mai.xmai_fast_lib.utils.MLog;
 
+import java.util.List;
+
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
@@ -17,9 +19,6 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 
-/**
- * Created by mai on 2017/11/20.
- */
 public class CatService extends BaseRetrofitService<CatApi> {
 
     static CatService instance;
@@ -126,11 +125,11 @@ public class CatService extends BaseRetrofitService<CatApi> {
         return checkNetWork(checkResult2(observable), context);
     }
 
-    protected Observable<Course> allVideoCourseList(MParams params, Context ctx) {
+    public Observable<List<Course>> allVideoCourseList(MParams params, Context ctx) {
         return checkNoDialog(mService.allVideoCourseList(params.getJsonRequestBody()), ctx);
     }
 
-    protected Observable<WaitCourse> videoWaitForPlayList(MParams params, Context ctx) {
+    public Observable<WaitCourse> videoWaitForPlayList(MParams params, Context ctx) {
         return checkNoDialog(mService.videoWaitForPlayList(params.getJsonRequestBody()), ctx);
     }
 }

@@ -2,9 +2,6 @@ package com.mai.dibbler.bean;
 
 import java.util.List;
 
-/**
- * Created by mai on 2018/6/25.
- */
 public class WaitCourse {
 
     /**

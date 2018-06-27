@@ -11,10 +11,6 @@ import android.widget.EditText;
 
 import com.mai.dibbler.R;
 
-/**
- * Created by mai on 2018/6/21.
- */
-
 
 @SuppressLint("AppCompatCustomView")
 public class SearchView extends EditText {
