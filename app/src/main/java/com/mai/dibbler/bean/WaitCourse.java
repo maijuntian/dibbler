@@ -13,6 +13,7 @@ public class WaitCourse {
 
     private String nextVideoPlayHint;
     private String videoPlayHint;
+    private String videoOnDemandSub;
     private String videoWaitPlayTotal;
     private List<Course> videoWaitList;
 
@@ -48,4 +49,11 @@ public class WaitCourse {
         this.videoWaitList = videoWaitList;
     }
 
+    public String getVideoOnDemandSub() {
+        return videoOnDemandSub;
+    }
+
+    public void setVideoOnDemandSub(String videoOnDemandSub) {
+        this.videoOnDemandSub = videoOnDemandSub;
+    }
 }

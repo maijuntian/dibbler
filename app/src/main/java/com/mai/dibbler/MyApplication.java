@@ -63,7 +63,7 @@ public class MyApplication extends BaseApplication {
     public void getWaitCourseList() {
         String lifeId = SharedPreferencesHelper.getInstance(getApplicationContext()).getStringValue(Key.LIFE_ID);
         if (!TextUtils.isEmpty(lifeId)) {
-            CatService.getInstance().videoWaitForPlayList(new MParams().add("lifeId", lifeId), getApplicationContext())
+            CatService.getInstance().videoWaitForPlayList(new MParams().add("lifeNo", lifeId), getApplicationContext())
                     .subscribe(new Action1<WaitCourse>() {
                         @Override
                         public void call(WaitCourse waitCourse) {

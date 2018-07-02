@@ -51,7 +51,7 @@ public class CourseDetailActivity extends BaseActivity<CourseDetailDelegate> {
         }
 
         CatService.getInstance().videoOnDemand(new MParams()
-                .add("lifeId", lifeId)
+                .add("lifeNo", lifeId)
                 .add("videoId", mCourse.getVideoId()), this)
                 .doOnSubscribe(new Action0() {
                     @Override
