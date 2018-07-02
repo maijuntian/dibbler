@@ -64,7 +64,7 @@ public class CourseDetailActivity extends BaseActivity<CourseDetailDelegate> {
                     public void call(WaitCourse waitCourse) {
                         if (dialog != null)
                             dialog.dismiss();
-                        MyApplication.INSTANCE.setWaitCourse(waitCourse);
+                        MyApplication.INSTANCE.setSelCourse(waitCourse);
                         startActivity(WaitListActivity.class, true);
                     }
                 }, new Action1<Throwable>() {

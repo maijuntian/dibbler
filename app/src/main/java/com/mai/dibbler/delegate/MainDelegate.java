@@ -97,7 +97,5 @@ public class MainDelegate extends BaseDelegate {
         };
         adapter.setOnItemClickListener(onItemClickListener);
         rvCourse.setAdapter(adapter);
-
     }
-
 }

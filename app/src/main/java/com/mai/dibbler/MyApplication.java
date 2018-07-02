@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.text.TextUtils;
 
 import com.mai.dibbler.base.BaseActivity;
+import com.mai.dibbler.bean.Course;
 import com.mai.dibbler.bean.WaitCourse;
 import com.mai.dibbler.http.CatService;
 import com.mai.dibbler.utils.Key;
@@ -20,6 +21,10 @@ import rx.Subscription;
 import rx.functions.Action1;
 
 public class MyApplication extends BaseApplication {
+
+    public Course mSelCourse;
+
+    public int selIndex;
 
     public WaitCourse mWaitCourse;
 
@@ -75,9 +80,28 @@ public class MyApplication extends BaseApplication {
         }
     }
 
-    public void setWaitCourse(WaitCourse mWaitCourse) {
-        this.mWaitCourse = mWaitCourse;
+    public void setSelCourse(WaitCourse waitCourse) {
 
+//        if (this.mWaitCourse == null || waitCourse == null) {
+        this.mWaitCourse = waitCourse;
+        /*} else {
+            for (int i = 0, size = waitCourse.getVideoWaitList().size(); i < size; i++) {
+
+                if (i == mWaitCourse.getVideoWaitList().size()) { //判定最后一个是新增的
+                    selIndex = i;
+                    mSelCourse = waitCourse.getVideoWaitList().get(i);
+                    break;
+                }
+
+                String oldStartTime = mWaitCourse.getVideoWaitList().get(i).getVideoStartTime();
+                String newStartTime = waitCourse.getVideoWaitList().get(i).getVideoStartTime();
+
+                if (!oldStartTime.equals(newStartTime)) { //开始时间不一致，判定是新增的
+                    selIndex = i;
+                    mSelCourse = waitCourse.getVideoWaitList().get(i);
+                }
+            }
+        }*/
         XAppManager.getInstance().doInAllActivity(new XAppManager.DoAllActivityListener() {
             @Override
             public void doAll(Activity act) {

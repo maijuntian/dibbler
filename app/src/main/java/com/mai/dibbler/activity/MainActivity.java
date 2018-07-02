@@ -152,4 +152,10 @@ public class MainActivity extends BaseActivity<MainDelegate> {
         }
         DialogUtils.showQrcodeDialog(this, deviceId);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        viewDelegate.initWaitCourse();
+    }
 }

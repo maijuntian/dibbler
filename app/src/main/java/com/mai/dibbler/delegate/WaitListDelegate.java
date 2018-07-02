@@ -12,6 +12,7 @@ import com.mai.dibbler.bean.WaitCourse;
 import com.mai.dibbler.utils.MGlide;
 import com.mai.xmai_fast_lib.baseadapter.BaseRecyclerViewAdapter;
 import com.mai.xmai_fast_lib.baseadapter.BaseViewHolderImpl;
+import com.mai.xmai_fast_lib.baseadapter.listener.ROnItemClickListener;
 
 import butterknife.Bind;
 
@@ -37,7 +38,7 @@ public class WaitListDelegate extends BaseDelegate {
     }
 
 
-    public void initWaitCourse() {
+    public void initWaitCourse(ROnItemClickListener itemClickListener) {
 
         WaitCourse waitCourse = MyApplication.INSTANCE.mWaitCourse;
 
@@ -59,11 +60,14 @@ public class WaitListDelegate extends BaseDelegate {
                         MGlide.load(mContext, data.getVideoImageUrl(), (ImageView) viewHolder.findViewById(R.id.iv_course_img));
                     }
                 };
+
+                adapter.setOnItemClickListener(itemClickListener);
                 rvCourse.setAdapter(adapter);
             } else {
                 adapter.notifyDataSetChanged();
             }
 
         }
+
     }
 }

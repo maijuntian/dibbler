@@ -1,11 +1,13 @@
 package com.mai.dibbler.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.mai.dibbler.MyApplication;
 import com.mai.dibbler.R;
 import com.mai.dibbler.base.BaseActivity;
 import com.mai.dibbler.delegate.WaitListDelegate;
+import com.mai.xmai_fast_lib.baseadapter.listener.ROnItemClickListener;
 
 import butterknife.OnClick;
 
@@ -14,17 +16,26 @@ import butterknife.OnClick;
  */
 public class WaitListActivity extends BaseActivity<WaitListDelegate> {
 
+    ROnItemClickListener itemClickListener = new ROnItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("course", MyApplication.INSTANCE.mWaitCourse.getVideoWaitList().get(position));
+            startActivity(CourseDetailActivity.class, bundle, false);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewDelegate.initWaitCourse();
+        viewDelegate.initWaitCourse(itemClickListener);
 
     }
 
     @Override
     public void videoWaitForPlayListSuccess() {
-        viewDelegate.initWaitCourse();
+        viewDelegate.initWaitCourse(itemClickListener);
     }
 
     @OnClick(R.id.iv_return)
