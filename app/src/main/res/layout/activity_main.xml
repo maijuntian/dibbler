@@ -6,6 +6,7 @@
     android:background="@mipmap/ydgzncf_img_bg">
 
     <TextView
+        android:id="@+id/tv_main_tip"
         style="@style/text_white"
         android:layout_marginLeft="65px"
         android:layout_marginTop="61px"
@@ -34,7 +35,9 @@
         android:drawableLeft="@mipmap/ydgzncf_icon_sousuo"
         android:drawablePadding="10px"
         android:hint="搜索课程名称"
+        android:imeOptions="actionSearch"
         android:paddingLeft="30px"
+        android:singleLine="true"
         android:textColorHint="@color/white"
         android:textSize="30px" />
 
@@ -141,6 +144,9 @@
         android:id="@+id/rv_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_wait_list"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="80px"
         android:scrollbars="none" />
 
 

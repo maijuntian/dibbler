@@ -18,4 +18,7 @@ public interface CatApi {
 
     @POST("external/videoPlay/videoWaitForPlayList")
     Observable<CatRespone<WaitCourse>> videoWaitForPlayList(@Body RequestBody json);
+
+    @POST("external/videoPlay/videoOnDemand")
+    Observable<CatRespone<WaitCourse>> videoOnDemand(@Body RequestBody json);
 }

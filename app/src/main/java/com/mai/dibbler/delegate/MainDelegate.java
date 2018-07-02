@@ -1,5 +1,6 @@
 package com.mai.dibbler.delegate;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.mai.dibbler.bean.WaitCourse;
 import com.mai.dibbler.utils.MGlide;
 import com.mai.xmai_fast_lib.baseadapter.BaseRecyclerViewAdapter;
 import com.mai.xmai_fast_lib.baseadapter.BaseViewHolderImpl;
+import com.mai.xmai_fast_lib.baseadapter.listener.ROnItemClickListener;
 
 import java.util.List;
 
@@ -57,6 +59,7 @@ public class MainDelegate extends BaseDelegate {
     public void initWidget() {
         super.initWidget();
 
+        rvCourse.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         rbCourseName.setChecked(true);
     }
 
@@ -75,9 +78,9 @@ public class MainDelegate extends BaseDelegate {
         }
     }
 
-    public void initCourses(List<Course> courses) {
+    public void initCourses(List<Course> courses, ROnItemClickListener onItemClickListener) {
 
-        rvCourse.setAdapter(new BaseRecyclerViewAdapter<Course>(courses) {
+        BaseRecyclerViewAdapter adapter = new BaseRecyclerViewAdapter<Course>(courses) {
             @Override
             protected int bindLayoutId(int position) {
                 return R.layout.rv_item_main_course;
@@ -91,12 +94,10 @@ public class MainDelegate extends BaseDelegate {
                 MGlide.load(mContext, data.getVideoImageUrl(), (ImageView) viewHolder.findViewById(R.id.iv_course_img));
             }
 
-        });
+        };
+        adapter.setOnItemClickListener(onItemClickListener);
+        rvCourse.setAdapter(adapter);
 
     }
 
-    @OnClick({R.id.rb_course_name, R.id.rb_course_time, R.id.rb_course_hot,})
-    public void chooseOrder(View v) {
-
-    }
 }

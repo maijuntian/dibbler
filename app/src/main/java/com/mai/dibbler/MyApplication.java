@@ -56,9 +56,9 @@ public class MyApplication extends BaseApplication {
     }
 
     public void getWaitCourseList() {
-        String deviceId = SharedPreferencesHelper.getInstance(getApplicationContext()).getStringValue(Key.DEVICE_ID);
-        if (!TextUtils.isEmpty(deviceId)) {
-            CatService.getInstance().videoWaitForPlayList(new MParams().add("deviceId", deviceId), getApplicationContext())
+        String lifeId = SharedPreferencesHelper.getInstance(getApplicationContext()).getStringValue(Key.LIFE_ID);
+        if (!TextUtils.isEmpty(lifeId)) {
+            CatService.getInstance().videoWaitForPlayList(new MParams().add("lifeId", lifeId), getApplicationContext())
                     .subscribe(new Action1<WaitCourse>() {
                         @Override
                         public void call(WaitCourse waitCourse) {
@@ -73,6 +73,17 @@ public class MyApplication extends BaseApplication {
                         }
                     });
         }
+    }
+
+    public void setWaitCourse(WaitCourse mWaitCourse) {
+        this.mWaitCourse = mWaitCourse;
+
+        XAppManager.getInstance().doInAllActivity(new XAppManager.DoAllActivityListener() {
+            @Override
+            public void doAll(Activity act) {
+                ((BaseActivity) act).videoWaitForPlayListSuccess();
+            }
+        });
     }
 
     @Override

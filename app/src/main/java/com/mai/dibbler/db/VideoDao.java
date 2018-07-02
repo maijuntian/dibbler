@@ -25,6 +25,7 @@ public class VideoDao extends AbstractDao<Video, String> {
      */
     public static class Properties {
         public final static Property Url = new Property(0, String.class, "url", true, "URL");
+        public final static Property Path = new Property(1, String.class, "path", false, "PATH");
     }
 
 
@@ -40,7 +41,8 @@ public class VideoDao extends AbstractDao<Video, String> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"VIDEO\" (" + //
-                "\"URL\" TEXT PRIMARY KEY NOT NULL );"); // 0: url
+                "\"URL\" TEXT PRIMARY KEY NOT NULL ," + // 0: url
+                "\"PATH\" TEXT);"); // 1: path
     }
 
     /** Drops the underlying database table. */
@@ -57,6 +59,11 @@ public class VideoDao extends AbstractDao<Video, String> {
         if (url != null) {
             stmt.bindString(1, url);
         }
+ 
+        String path = entity.getPath();
+        if (path != null) {
+            stmt.bindString(2, path);
+        }
     }
 
     @Override
@@ -66,6 +73,11 @@ public class VideoDao extends AbstractDao<Video, String> {
         String url = entity.getUrl();
         if (url != null) {
             stmt.bindString(1, url);
+        }
+ 
+        String path = entity.getPath();
+        if (path != null) {
+            stmt.bindString(2, path);
         }
     }
 
@@ -77,7 +89,8 @@ public class VideoDao extends AbstractDao<Video, String> {
     @Override
     public Video readEntity(Cursor cursor, int offset) {
         Video entity = new Video( //
-            cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0) // url
+            cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0), // url
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1) // path
         );
         return entity;
     }
@@ -85,6 +98,7 @@ public class VideoDao extends AbstractDao<Video, String> {
     @Override
     public void readEntity(Cursor cursor, Video entity, int offset) {
         entity.setUrl(cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0));
+        entity.setPath(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
      }
     
     @Override

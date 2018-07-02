@@ -14,7 +14,7 @@ public class WaitCourse {
     private String nextVideoPlayHint;
     private String videoPlayHint;
     private String videoWaitPlayTotal;
-    private List<VideoWaitList> videoWaitList;
+    private List<Course> videoWaitList;
 
     public String getNextVideoPlayHint() {
         return nextVideoPlayHint;
@@ -40,97 +40,12 @@ public class WaitCourse {
         this.videoWaitPlayTotal = videoWaitPlayTotal;
     }
 
-    public List<VideoWaitList> getVideoWaitList() {
+    public List<Course> getVideoWaitList() {
         return videoWaitList;
     }
 
-    public void setVideoWaitList(List<VideoWaitList> videoWaitList) {
+    public void setVideoWaitList(List<Course> videoWaitList) {
         this.videoWaitList = videoWaitList;
     }
 
-    public static class VideoWaitList {
-        /**
-         * introdution : string
-         * videoDuration : string
-         * videoEndTime : string
-         * videoId : string
-         * videoImageUrl : string
-         * videoName : string
-         * videoStartTime : string
-         * videoUrl : string
-         */
-
-        private String introdution;
-        private String videoDuration;
-        private String videoEndTime;
-        private String videoId;
-        private String videoImageUrl;
-        private String videoName;
-        private String videoStartTime;
-        private String videoUrl;
-
-        public String getIntrodution() {
-            return introdution;
-        }
-
-        public void setIntrodution(String introdution) {
-            this.introdution = introdution;
-        }
-
-        public String getVideoDuration() {
-            return videoDuration;
-        }
-
-        public void setVideoDuration(String videoDuration) {
-            this.videoDuration = videoDuration;
-        }
-
-        public String getVideoEndTime() {
-            return videoEndTime;
-        }
-
-        public void setVideoEndTime(String videoEndTime) {
-            this.videoEndTime = videoEndTime;
-        }
-
-        public String getVideoId() {
-            return videoId;
-        }
-
-        public void setVideoId(String videoId) {
-            this.videoId = videoId;
-        }
-
-        public String getVideoImageUrl() {
-            return videoImageUrl;
-        }
-
-        public void setVideoImageUrl(String videoImageUrl) {
-            this.videoImageUrl = videoImageUrl;
-        }
-
-        public String getVideoName() {
-            return videoName;
-        }
-
-        public void setVideoName(String videoName) {
-            this.videoName = videoName;
-        }
-
-        public String getVideoStartTime() {
-            return videoStartTime;
-        }
-
-        public void setVideoStartTime(String videoStartTime) {
-            this.videoStartTime = videoStartTime;
-        }
-
-        public String getVideoUrl() {
-            return videoUrl;
-        }
-
-        public void setVideoUrl(String videoUrl) {
-            this.videoUrl = videoUrl;
-        }
-    }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="50px">
+
+    <EditText
+        android:id="@+id/et_device_id"
+        style="@style/text_black"
+        android:layout_width="400px"
+        android:hint="输入设备号"
+        android:textSize="40px" />
+
+
+    <EditText
+        android:id="@+id/et_life_id"
+        style="@style/text_black"
+        android:layout_width="400px"
+        android:hint="输入场馆号"
+        android:textSize="40px" />
+
+
+    <Button
+        android:id="@+id/bt_confirm"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        android:text="确定"
+        android:textSize="40px" />
+
+</LinearLayout>

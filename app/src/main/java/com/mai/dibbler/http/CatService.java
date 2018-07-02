@@ -132,4 +132,8 @@ public class CatService extends BaseRetrofitService<CatApi> {
     public Observable<WaitCourse> videoWaitForPlayList(MParams params, Context ctx) {
         return checkNoDialog(mService.videoWaitForPlayList(params.getJsonRequestBody()), ctx);
     }
+
+    public Observable<WaitCourse> videoOnDemand(MParams params, Context ctx) {
+        return checkNoDialog(mService.videoOnDemand(params.getJsonRequestBody()), ctx);
+    }
 }
