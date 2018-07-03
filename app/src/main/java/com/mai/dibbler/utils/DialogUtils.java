@@ -39,7 +39,7 @@ public class DialogUtils {
         }
 
         if (!TextUtils.isEmpty(lifeId)) {
-            etDeviceId.setText(lifeId);
+            etLifeId.setText(lifeId);
         }
 
 

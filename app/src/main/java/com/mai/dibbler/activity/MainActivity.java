@@ -46,7 +46,8 @@ public class MainActivity extends BaseActivity<MainDelegate> {
 
         viewDelegate.etInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEND || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    hideSoftInput(getCurrentFocus().getWindowToken());
                     courseList();
                     return true;
                 }
@@ -92,32 +93,33 @@ public class MainActivity extends BaseActivity<MainDelegate> {
                     }
                 })
                 .subscribe(new Action1<List<Course>>() {
-            @Override
-            public void call(final List<Course> courses) {
-                if(dialog != null)
-                    dialog.dismiss();
-                mCourses = courses;
-
-                viewDelegate.initCourses(courses, new ROnItemClickListener() {
                     @Override
-                    public void onItemClick(View view, int position) {
+                    public void call(final List<Course> courses) {
+                        if (dialog != null)
+                            dialog.dismiss();
+                        mCourses = courses;
 
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("course", mCourses.get(position));
-                        startActivity(CourseDetailActivity.class, bundle, false);
+                        viewDelegate.initCourses(courses, new ROnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("course", mCourses.get(position));
+                                startActivity(CourseDetailActivity.class, bundle, false);
+                            }
+                        });
+
+                        if (TextUtils.isEmpty(videoCourseName))
+                            DownloadVideosUtils.getInstance().addVideoUrls(courses);
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        if (dialog != null)
+                            dialog.dismiss();
+                        throwable.printStackTrace();
                     }
                 });
-
-                if (TextUtils.isEmpty(videoCourseName))
-                    DownloadVideosUtils.getInstance().addVideoUrls(courses);
-            }
-        }, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) { if(dialog != null)
-                dialog.dismiss();
-                throwable.printStackTrace();
-            }
-        });
     }
 
     @OnClick({R.id.rb_course_name, R.id.rb_course_time, R.id.rb_course_hot,})

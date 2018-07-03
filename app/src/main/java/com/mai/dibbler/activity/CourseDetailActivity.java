@@ -1,5 +1,6 @@
 package com.mai.dibbler.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,7 @@ import com.mai.dibbler.http.CatService;
 import com.mai.dibbler.utils.Key;
 import com.mai.xmai_fast_lib.basehttp.MParams;
 import com.mai.xmai_fast_lib.utils.SharedPreferencesHelper;
+import com.mai.xmai_fast_lib.utils.XAppManager;
 
 import butterknife.OnClick;
 import rx.functions.Action0;
@@ -65,7 +67,12 @@ public class CourseDetailActivity extends BaseActivity<CourseDetailDelegate> {
                         if (dialog != null)
                             dialog.dismiss();
                         MyApplication.INSTANCE.setSelCourse(waitCourse);
-                        startActivity(WaitListActivity.class, true);
+
+                        XAppManager.getInstance().finishActivity(WaitListActivity.class);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putBoolean("isShow", true);
+                        startActivity(WaitListActivity.class, bundle, true);
                     }
                 }, new Action1<Throwable>() {
                     @Override

@@ -29,7 +29,15 @@ public class WaitListActivity extends BaseActivity<WaitListDelegate> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewDelegate.initWaitCourse(itemClickListener);
+
+        boolean isShowInsert = getIntent().getBooleanExtra("isShow", false);
+
+        if(isShowInsert){
+            viewDelegate.showInsert(itemClickListener);
+        } else {
+
+            viewDelegate.initWaitCourse(itemClickListener);
+        }
 
     }
 
