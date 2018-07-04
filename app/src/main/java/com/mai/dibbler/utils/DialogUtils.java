@@ -76,12 +76,13 @@ public class DialogUtils {
         ImageView ivQrcode = dialog.findViewById(R.id.iv_qrcode);
 
         ivQrcode.setImageBitmap(QrCodeUtils.createImage(qrcode, 500, 500));
-        dialog.findViewById(R.id.root).setOnClickListener(new View.OnClickListener() {
+        dialog.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
+
         dialog.show();
     }
 }
